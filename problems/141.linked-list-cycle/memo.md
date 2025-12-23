@@ -1,0 +1,6 @@
+###Step1
+はじめてなので入手力の仕方がどのようになるか分かりづらかった(勝手にhasCycleがtestケースの引数で呼ばれているようだった)
+入力のposは何のためについているのかわからなかった
+https://docs.python.org/ja/3.13/library/typing.html#typing.Optional
+Optionalについて知らなかったのでドキュメントを調べた
+とりあえず常套手段だと思った到達済みの箇所をsetで管理するように実装を進めた
