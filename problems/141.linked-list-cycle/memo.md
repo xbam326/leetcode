@@ -1,6 +1,26 @@
 ###Step1
-はじめてなので入手力の仕方がどのようになるか分かりづらかった(勝手にhasCycleがtestケースの引数で呼ばれているようだった)
-入力のposは何のためについているのかわからなかった
-https://docs.python.org/ja/3.13/library/typing.html#typing.Optional
-Optionalについて知らなかったのでドキュメントを調べた
-とりあえず常套手段だと思った到達済みの箇所をsetで管理するように実装を進めた
+- はじめてなので入手力の仕方がどのようになるか分かりづらかった
+  - 勝手にhasCycleがtestケースの引数で呼ばれているようだった
+- 入力のposは何のためについているのかわからなかった
+
+- Optionalについて知らなかったのでドキュメントを調べた(https://docs.python.org/ja/3.13/library/typing.html#typing.Optional)
+- とりあえず常套手段だと思った到達済みの箇所をsetで管理するように実装を進めた
+
+
+###Step2
+- Nodeが同じとは何か？
+  - Indexではなくメモリの位置を見ているのでreachedIndexListという変数名はよくなかったし初期値も誤っていた
+- LinkedListの辿り方が自分の中で定まっていないため、.nextをつけるのかつけないのか、などを都度迷っている
+  - 現在のNodeの判定を行ってからreachedに入れていくのが一般的な流れ？
+    - reachedのSetの初期値は空でcurrentとreachedで判定して、最後にreachedにaddしていくのが自然なはず
+- posが−１以外の場合はNodeを辿らなくてもいいのでは？
+  - -1の場合でloopを持つ場合が存在するかどうか？
+    - loopが存在する場合は全てどこかのIndexに繋がるはずなので存在しない
+      - posが−１かどうかを見れば良い？
+        - posは受け取れなさそう
+- 現在の計算量は,時間O(n),空間O(n)
+- 空間をO(n)にする解法を調べた
+  - Floyd の循環検出法（ウサギとカメ）
+- slow = fast = headの書き方を初めて知った(ドキュメントでmultiple assignment(多重代入)で調べたが公式はわからなかった)
+- ある記事によると少し遅いらしい(https://yiskw713.hatenablog.com/entry/2022/05/11/210000)
+- 
