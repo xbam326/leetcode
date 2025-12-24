@@ -40,7 +40,7 @@ class Solution:
         # 合流した点がloopの開始の点になる
         nodeFromHead = head
         nodeFromMeetingPoint = slow
-        while nodeFromHead != nodeFromMeetingPoint:
+        while nodeFromHead is not nodeFromMeetingPoint:
             nodeFromHead = nodeFromHead.next
             nodeFromMeetingPoint = nodeFromMeetingPoint.next
         return nodeFromHead

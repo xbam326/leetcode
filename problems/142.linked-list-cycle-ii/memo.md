@@ -39,10 +39,17 @@ if cuurent:のコードはよく見るのでこちらの方が多数派だと思
 - head → cycle開始点までの距離 = a
 - cycleの長さ = b
 - 出会い点までの距離（cycle内） = c
-- head --a--> [cycle start] --c--> [meeting point]
+- head --a--> [cycle start] --c--> [meeting point]--d-->[cycle start]
 - slow / fast が出会ったとき
   - slow が進んだ距離：a + c
-  - fast が進んだ距離：2(a + c), a+c+b*n
+  - fast が進んだ距離：2(a + c), a+2c+d, a+c+b*n
 - fast は slow より ちょうど cycle を n 周多く回っている
-- 2(a+c) = a+c+b*n => a+c = b*n
-- => なんで始点に戻して一つづつ進んだら戻るかがわからない
+- 2(a+c) = a+2c+d => a = d
+- => meeting pointからcycle startまでとheadからcycle startまでの距離は等しい！！！
+
+書き方迷った点
+- `if hasLoop != True:`
+  - `if not hasLoop`にすべき
+- hasLoopが本当に必要か？
+- step1とstep2を関数化すればスッキリする？
+- Nodeが等しくないことを確かめるにはis notを使うべきなのに!=と書いていた
