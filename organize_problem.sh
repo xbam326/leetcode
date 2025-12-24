@@ -40,7 +40,7 @@ cp "$ORIGINAL_FILE" "$PROBLEM_DIR/step3.$EXT"
 touch "$PROBLEM_DIR/memo.md"
 
 # 元のファイルを削除（オプション）
-# rm "$ORIGINAL_FILE"
+rm "$ORIGINAL_FILE"
 
 echo "✓ Created directory structure for problem ${PROBLEM_NUM}:"
 echo "  $PROBLEM_DIR/"
