@@ -52,4 +52,20 @@ if cuurent:のコードはよく見るのでこちらの方が多数派だと思
   - `if not hasLoop`にすべき
 - hasLoopが本当に必要か？
 - step1とstep2を関数化すればスッキリする？
-- Nodeが等しくないことを確かめるにはis notを使うべきなのに!=と書いていた
+
+## step3
+実際のコーディング時にはメモリの制約の状況を気にしたいが、setの解法の方が一般的で書くことが多そうなためsetの方法とFloydの方法を2回ずつ書くことにする
+
+```
+def findMeetingNode(
+    self, slow: Optional[ListNode], fast: Optional[ListNode]
+) -> Optional[ListNode]:
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow is fast:
+            return slow
+```
+上記で先にslowとfastを比較してしまい、最初にheadを返してしまうようなコードを書いてしまった
+
+nodeを受け取って合流点を調べたり、loopの開始点を調べる際に副作用を生じさせないため受け取ったnodeを動かさないように気をつけた
