@@ -1,0 +1,22 @@
+## step1
+何を返せばいい？先頭？
+同じNodeで行き先が2つあることとかあるのか？
+chatGPTで聞いたら今回はvalで判定するみたい
+=> 141や142ではhead = [1,1,2,3,3]はNodeの行き先(next)を表していたのに一貫性がないように感じる
+
+## step2
+currentのvalとcurrent.nextのvalを比較していきたいが、current.nextがNoneの時にNone.valでエラーが生じるためどこでcurrent.nextがNoneでないかを判定するか迷った
+step1ではwhileの中でcurrent.nextがNoneでないことを確認した
+=> headがListNodeの型の場合`while current.next:`と書けたと思っている
+
+currentは他の人もよく書いているが、情報がないとの指摘もある
+代わりにnodeを使っている人が多い印象
+previousを使う場合はcurrentにするのが意図が伝わりやすそう
+その場合でもpreviousNodeとか書いたほうが親切かも
+
+他の方のコメントも確認したが概ね差がないように思える
+
+## step3
+3回書いている途中に`node.next = node.next.next`の部分が連結先のnodeの先を付け替えているイメージが濃くなった気がする
+現在のnodeは固定して条件を見て次のnodeを付け替えるor次のnodeに処理を進めるイメージを頭で浮かべながら書いた
+元々解く時には都度条件を考えながら書いていたが解法が自分の中で定着しつつあると頭の中のリソースに余裕ができたおかげかもしれない
